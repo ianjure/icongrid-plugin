@@ -1,0 +1,296 @@
+<style>
+  *, *:after, *:before{
+    box-sizing: border-box;
+  }
+
+  .container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 210px;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tabs {
+    display: flex;
+    position: relative;
+    background-color: white;
+    padding: 0.75rem;
+    border-radius: 99px;
+    border:3px solid black;
+  }
+
+  .tabs *{
+    z-index: 2;
+  }
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  .tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 100px;
+    font-size: 18px;
+    border-radius: 99px;
+    cursor: pointer;
+    transition: color 0.15s ease-in;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+  }
+
+  input[type="radio"]:checked + label {
+    color: white;
+  }
+
+  input[id="radio-1"]:checked ~ .glider {
+    transform: translate(0);
+  }
+
+  input[id="radio-2"]:checked ~ .glider {
+    transform: translate(100%);
+  }
+
+  input[id="radio-3"]:checked ~ .glider {
+    transform: translate(200%);
+  }
+
+  input[id="radio-4"]:checked ~ .glider {
+    transform: translate(300%);
+  }
+
+  .glider {
+    position: absolute;
+    display: flex;
+    height: 50px;
+    width: 100px;
+    background-color: #1899D6;
+    color: white;
+    z-index: 1;
+    border-radius: 150px;
+    transition: 0.25s ease-out;
+    font-weight: 500;
+  }
+
+  @media (max-width: 700px) {
+    .tabs {
+      transform: scale(0.6);
+    }
+  }
+
+  .submit {
+    appearance: button;
+    background-color: #1899D6;
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    line-height: 10px;
+    margin: 0;
+    margin-top: 280px;
+    margin-bottom: 0px;
+    outline: none;
+    overflow: visible;
+    padding: 20px 16px;
+    text-align: center;
+    text-transform: uppercase;
+    touch-action: manipulation;
+    transform: translateZ(0);
+    transition: filter .2s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 250px;
+  }
+
+  .submit:after {
+    background-clip: padding-box;
+    background-color: #1CB0F6;
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    bottom: -4px;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
+
+  .submit:main,
+  .submit:focus {
+    user-select: auto;
+  }
+
+  .submit:hover:not(:disabled) {
+    filter: brightness(1.1);
+    -webkit-filter: brightness(1.1);
+  }
+
+  .submit:disabled {
+    cursor: auto;
+  }
+
+  .submit:active {
+    border-width: 4px 0 0;
+    background: none;
+  }
+
+  .submit_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  h1 {
+    margin-top: 10px;
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
+    font-size: 40px;
+  }
+
+  h3 {
+    margin-top: 10px;
+    margin-bottom: -200px;
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
+  }
+
+  body {
+    padding: 2em;
+  }
+  
+</style>
+
+<h1>IconGrid</h1>
+
+<div id="16" style="text-align:center;">
+  <svg width="162" height="162" viewBox="0 0 162 162" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M81 56L51 78.5H58.5V108.5H73.5V93.5H88.5V108.5H103.5V78.275L111 78.5L81 56Z" fill="black"/>
+    <path d="M81 56L51 78.5H58.5V108.5H73.5V93.5H88.5V108.5H103.5V78.275L111 78.5L81 56Z" stroke="black"/>
+    <path d="M1 1H161V161H1V1Z" stroke="black"/>
+  </svg>
+</div>
+
+<div id="20" style="text-align:center;display:none;">
+  <svg width="162" height="162" viewBox="0 0 162 162" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M81 46L41 76H51V116H71V96H91V116H111V75.7L121 76L81 46Z" fill="black"/>
+    <path d="M81 46L41 76H51V116H71V96H91V116H111V75.7L121 76L81 46Z" stroke="black"/>
+    <path d="M1 1H161V161H1V1Z" stroke="black"/>
+  </svg>
+</div>
+
+<div id="24" style="text-align:center;display:none;">
+  <svg width="162" height="162" viewBox="0 0 162 162" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M81 41L36 75.2857H47.25V121H69.75V98.1429H92.25V121H114.75V74.9429L126 75.2857L81 41Z" fill="black"/>
+    <path d="M81 41L36 75.2857H47.25V121H69.75V98.1429H92.25V121H114.75V74.9429L126 75.2857L81 41Z" stroke="black"/>
+    <path d="M1 1H161V161H1V1Z" stroke="black"/>
+  </svg>
+</div>
+
+<div id="32" style="text-align:center;display:none;">
+  <svg width="162" height="162" viewBox="0 0 162 162" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M81 21L16 70.2857H32.25V136H64.75V103.143H97.25V136H129.75V69.7929L146 70.2857L81 21Z" fill="black"/>
+    <path d="M81 21L16 70.2857H32.25V136H64.75V103.143H97.25V136H129.75V69.7929L146 70.2857L81 21Z" stroke="black"/>
+    <path d="M1 1H161V161H1V1Z" stroke="black"/>
+  </svg>
+</div>
+
+<div>
+  <h3 id="size">16x16 px</h3>
+</div>
+
+<div class="container">
+  <div class="tabs">
+    <input type="radio" id="radio-1" name="tabs" value="1" checked>
+    <label class="tab" for="radio-1">Tiny</label>
+
+    <input type="radio" id="radio-2" name="tabs" value="2">
+    <label class="tab" for="radio-2">Small</label>
+
+    <input type="radio" id="radio-3" name="tabs" value="3">
+    <label class="tab" for="radio-3">Medium</label>
+
+    <input type="radio" id="radio-4" name="tabs" value="4">
+    <label class="tab" for="radio-4">Large</label>
+
+    <span class="glider"></span>
+  </div>
+</div>
+
+<div class="submit_button">
+  <button class="submit" id="submit">Create</button>
+</div>
+
+<script>
+  let selected_pixel = "16";
+
+  const pixel = document.getElementById("size");
+
+  const tiny_svg = document.getElementById("16");
+  const small_svg = document.getElementById("20");
+  const medium_svg = document.getElementById("24");
+  const large_svg = document.getElementById("32");
+
+  const tiny = document.getElementById("radio-1");
+  const small = document.getElementById("radio-2");
+  const medium = document.getElementById("radio-3");
+  const large = document.getElementById("radio-4");
+
+  tiny.addEventListener("click", function() {
+    pixel.textContent = "16x16 px";
+    tiny_svg.style.display = "block"
+    small_svg.style.display = "none";
+    medium_svg.style.display = "none";
+    large_svg.style.display = "none";
+    selected_pixel = "16";
+  });
+
+  small.addEventListener("click", function() {
+    pixel.textContent = "20x20 px";
+    tiny_svg.style.display = "none";
+    small_svg.style.display = "block"
+    medium_svg.style.display = "none";
+    large_svg.style.display = "none";
+    selected_pixel = "20";
+  });
+
+  medium.addEventListener("click", function() {
+    pixel.textContent = "24x24 px";
+    tiny_svg.style.display = "none";
+    small_svg.style.display = "none";
+    medium_svg.style.display = "block"
+    large_svg.style.display = "none";
+    selected_pixel = "24";
+  });
+
+  large.addEventListener("click", function() {
+    pixel.textContent = "32x32 px";
+    tiny_svg.style.display = "none";
+    small_svg.style.display = "none";
+    medium_svg.style.display = "none";
+    large_svg.style.display = "block"
+    selected_pixel = "32";
+  });
+
+  document.getElementById('submit').onclick = () => {
+    parent.postMessage({pluginMessage: {selected_pixel}}, '*')
+  }
+</script>
